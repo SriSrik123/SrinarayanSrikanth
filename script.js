@@ -33,22 +33,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dark Mode Toggle Logic
     const enableDarkMode = () => {
         body.classList.add('dark-mode');
+        // Ensure the moon icon is visible when dark mode is enabled
         themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
         localStorage.setItem('theme', 'dark');
     };
 
     const disableDarkMode = () => {
         body.classList.remove('dark-mode');
+        // Ensure the sun icon is visible when light mode is enabled
         themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
         localStorage.setItem('theme', 'light');
     };
 
     // Check saved theme preference on load
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        enableDarkMode();
-    } else {
-        disableDarkMode(); // Ensure light mode is default if no preference or 'light'
+
+    // If no theme is saved, or if it's explicitly 'light', default to dark mode.
+    // Otherwise, apply the saved theme.
+    if (savedTheme === null || savedTheme === 'light') { // Changed logic here
+        enableDarkMode(); // Default to dark mode
+    } else if (savedTheme === 'dark') {
+        enableDarkMode(); // Apply dark mode if previously saved
     }
 
     // Toggle theme on button click
