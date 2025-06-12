@@ -1,29 +1,30 @@
 /* General Styling */
 :root {
     /* Light Theme Defaults */
-    --primary-color: #007bff; /* Drexel Blue */
-    --secondary-color: #6c757d;
-    --text-color: #333;
-    --background-color: #f8f9fa;
-    --card-background: #ffffff;
+    --primary-color: #007bff; /* Drexel Blue - Used for header, links, buttons, main headings in light mode */
+    --secondary-color: #6c757d; /* Used for secondary text, subheadings */
+    --text-color: #333; /* Main body text color */
+    --background-color: #f8f9fa; /* Background for sections like Skills, Experience */
+    --card-background: #ffffff; /* Background for cards and sections like About, Projects, Contact */
     --border-color: #e9ecef;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --hero-gradient-start: var(--primary-color);
-    --hero-gradient-end: #4CAF50; /* Example gradient */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for cards */
+    --hero-gradient-start: var(--primary-color); /* Start of gradient for the "About" hero section */
+    --hero-gradient-end: #4CAF50; /* End of gradient for the "About" hero section */
 }
 
 body.dark-mode {
+    /* Dark Theme Overrides */
     --primary-color: #34495e; /* Darker blue/grey for dark mode accents and header */
-    --secondary-color: #adb5bd;
-    --text-color: #e0e0e0;
-    --background-color: #1a1a1a;
-    --card-background: #2a2a2a;
+    --secondary-color: #adb5bd; /* Lighter secondary text for dark mode */
+    --text-color: #e0e0e0; /* Lighter main body text color for dark mode */
+    --background-color: #1a1a1a; /* Darker background for sections */
+    --card-background: #2a2a2a; /* Darker background for cards */
     --border-color: #3a3a3a;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    --hero-gradient-start: #2a2a2a; /* Darker gradient for hero */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for dark mode */
+    --hero-gradient-start: #2a2a2a; /* Darker gradient for hero in dark mode */
     --hero-gradient-end: #0056b3;
 
-    /* Darker headings in dark mode */
+    /* Headings in dark mode */
     --heading-dark-color: #bbbbbb; /* A lighter grey for headings against a dark background */
 }
 
@@ -32,36 +33,41 @@ html {
 }
 
 body {
-    font-family: 'Open Sans', sans-serif; /* Changed font to Open Sans */
+    font-family: 'Open Sans', sans-serif; /* Professional font */
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--background-color); /* Applied globally */
+    color: var(--text-color); /* Applied globally */
     scroll-behavior: smooth;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
 }
 
-.section-padding {
+/* Base styling for all sections */
+section {
     padding: 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
-    color: var(--primary-color); /* Default to primary color */
+    color: var(--primary-color); /* Default to primary color (light mode) */
     margin-bottom: 20px;
     text-align: center;
     transition: color 0.3s ease; /* Smooth transition for heading color */
 }
 
 /* Override heading color specifically for dark mode */
-body.dark-mode h1,
 body.dark-mode h2,
-body.dark-mode h3 {
-    color: var(--heading-dark-color, #bbbbbb); /* Use the new variable, with a fallback */
+body.dark-mode h3 { /* H1 is in header in this HTML, stays white/primary */
+    color: var(--heading-dark-color, #bbbbbb); /* Uses specific dark mode heading color */
 }
 
+/* H1 in header remains white */
+.header h1 {
+    color: white; /* H1 in header is always white for contrast */
+}
 
 h2 {
     font-size: 2.5em;
@@ -74,7 +80,7 @@ h3 {
 }
 
 a {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Link color */
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -93,10 +99,9 @@ ul {
     padding: 0;
 }
 
-
 /* Header and Navigation */
 .header {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color); /* Uses primary color for header background */
     color: white;
     padding: 15px 0;
     position: sticky;
@@ -104,60 +109,41 @@ ul {
     z-index: 1000;
     box-shadow: var(--shadow);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    flex-wrap: wrap; /* Allow header content to wrap if needed */
 }
 
-.nav-logo {
+.header h1 { /* Your main site title in header */
+    margin: 0;
     font-size: 1.8em;
     font-weight: 700;
-    color: white;
-    text-decoration: none;
+    padding-left: 20px; /* Align with sections */
 }
 
-.nav-menu {
+nav ul {
     display: flex;
-    align-items: center; /* Align items including the toggle button */
+    margin: 0;
+    padding-right: 20px; /* Align with sections */
 }
 
-.nav-item {
-    margin-left: 30px;
+nav ul li {
+    margin-left: 25px;
 }
 
-.nav-link {
+nav ul li a {
     color: white;
     font-weight: 400;
     transition: color 0.3s ease;
 }
 
-.nav-link:hover {
+nav ul li a:hover {
     color: #e9ecef;
     text-decoration: none;
 }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
-}
-
-/* Theme Toggle Button */
+/* Theme Toggle Button (Assumes you add this to your HTML) */
 .theme-toggle {
     background: none;
     border: none;
@@ -173,9 +159,9 @@ ul {
     transform: scale(1.1);
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(to right, var(--hero-gradient-start), var(--hero-gradient-end));
+/* About Section (acting as hero) */
+.about {
+    background: linear-gradient(to right, var(--hero-gradient-start), var(--hero-gradient-end)); /* Uses hero gradient vars */
     color: white;
     text-align: center;
     padding: 100px 20px;
@@ -187,7 +173,7 @@ ul {
     transition: background 0.3s ease;
 }
 
-.hero-content {
+.profile-info {
     display: flex;
     flex-direction: row; /* Default for larger screens */
     align-items: center;
@@ -198,7 +184,7 @@ ul {
     text-align: left; /* Align text left within its column */
 }
 
-.hero-photo {
+.profile-image {
     width: 280px; /* Increased size */
     height: 280px; /* Increased size */
     border-radius: 50%; /* Makes the image circular */
@@ -208,97 +194,65 @@ ul {
     flex-shrink: 0; /* Prevent image from shrinking too much */
 }
 
-.hero-text-content {
-    flex: 1; /* Allow text content to take remaining space */
-    min-width: 280px; /* Ensure text content has a minimum width */
-}
-
-.hero-section h1 {
-    font-size: 3.5em;
+.about h2,
+.about h3,
+.about p {
+    color: white; /* Text in hero section is always white for contrast with gradient */
+    text-align: left; /* Align text within its content block */
+    margin-top: 0;
     margin-bottom: 10px;
-    color: white;
-    text-align: left; /* Align h1 with other text */
 }
 
-.hero-section .tagline {
-    font-size: 1.5em;
+.about p {
     margin-bottom: 20px;
-    opacity: 0.9;
-    text-align: left; /* Align tagline with other text */
 }
 
-.hero-section .intro-text {
-    max-width: 800px;
-    font-size: 1.1em;
-    margin-bottom: 40px;
-    opacity: 0.9;
-    text-align: left; /* Align intro text with other text */
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: flex-start; /* Align buttons with text */
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
-}
-
-.primary-btn {
-    background-color: white;
-    color: var(--primary-color);
-    border: 2px solid white;
-}
-
-.primary-btn:hover {
-    background-color: transparent;
-    color: white;
-    transform: translateY(-3px);
-}
-
-.secondary-btn {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.secondary-btn:hover {
-    background-color: white;
-    color: var(--primary-color);
-    transform: translateY(-3px);
-}
-
-/* About Section */
-.about-section {
-    background-color: var(--card-background);
+/* Skills Section */
+.skills {
+    background-color: var(--card-background); /* Uses card background */
     text-align: center;
-    transition: background-color 0.3s ease;
 }
 
-.about-content {
-    max-width: 900px;
-    margin: 0 auto;
-    font-size: 1.1em;
-    line-height: 1.8;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
 }
 
-.about-content p {
-    margin-bottom: 15px;
+.skills-grid > div { /* Target the direct children of skills-grid (your skill categories) */
+    background-color: var(--background-color); /* Lighter background for skill cards */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: left;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .skills-grid > div {
+    background-color: #1f1f1f; /* Even darker in dark mode */
+}
+
+.skills-grid h3 {
+    color: var(--secondary-color); /* Skill category headings */
+    text-align: left;
+}
+
+.skills-grid ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.skills-grid li {
+    margin-bottom: 8px;
 }
 
 /* Projects Section */
-.projects-section {
-    background-color: var(--background-color);
-    transition: background-color 0.3s ease;
+.projects {
+    background-color: var(--background-color); /* Uses main background color */
 }
 
-.projects-grid {
+.project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -306,7 +260,7 @@ ul {
 }
 
 .project-card {
-    background-color: var(--card-background);
+    background-color: var(--card-background); /* Uses card background */
     padding: 30px;
     border-radius: 8px;
     box-shadow: var(--shadow);
@@ -338,7 +292,7 @@ ul {
 
 .project-link {
     display: inline-block;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color); /* Link button background */
     color: white;
     padding: 8px 15px;
     border-radius: 5px;
@@ -354,53 +308,13 @@ body.dark-mode .project-link:hover {
     background-color: #007bff; /* Adjust hover for dark mode */
 }
 
-
-/* Skills Section */
-.skills-section {
-    background-color: var(--card-background);
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-.skills-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-    text-align: left;
-}
-
-.skill-category h3 {
-    font-size: 1.4em;
-    margin-bottom: 15px;
-    text-align: left;
-    color: var(--secondary-color);
-}
-
-.skill-category ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
-.skill-category li {
-    margin-bottom: 8px;
-    font-size: 1.05em;
-}
-
-.hackerrank-github-links {
-    margin-top: 40px;
-    font-size: 1.1em;
-    text-align: center;
-}
-
 /* Experience Section */
-.experience-section {
-    background-color: var(--background-color);
-    transition: background-color 0.3s ease;
+.experience {
+    background-color: var(--card-background); /* Uses card background */
 }
 
 .experience-item {
-    background-color: var(--card-background);
+    background-color: var(--background-color); /* Lighter background for experience cards */
     padding: 30px;
     border-radius: 8px;
     box-shadow: var(--shadow);
@@ -409,22 +323,19 @@ body.dark-mode .project-link:hover {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+body.dark-mode .experience-item {
+    background-color: #1f1f1f; /* Even darker in dark mode */
+}
+
 .experience-item h3 {
     font-size: 1.6em;
     margin-bottom: 5px;
     text-align: left;
 }
 
-.experience-item h4 {
-    font-size: 1.2em;
-    color: var(--secondary-color);
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-.experience-item .duration {
+.experience-item p.duration {
     font-size: 0.9em;
-    color: var(--secondary-color); /* Updated for better dark mode readability */
+    color: var(--secondary-color); /* Uses secondary color for duration */
     margin-bottom: 15px;
 }
 
@@ -439,64 +350,24 @@ body.dark-mode .project-link:hover {
     margin-bottom: 8px;
 }
 
-/* Interests Section */
-.interests-section {
-    background-color: var(--card-background);
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-.interests-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-    text-align: left;
-}
-
-.interest-item {
-    background-color: var(--background-color); /* Lighter background for interest cards */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-body.dark-mode .interest-item {
-    background-color: #1f1f1f; /* Even darker in dark mode */
-}
-
-.interest-item:hover {
-    transform: translateY(-5px);
-}
-
-.interest-item h3 {
-    text-align: left;
-}
-
 /* Contact Section */
-.contact-section {
-    background-color: var(--card-background);
+.contact {
+    background-color: var(--background-color); /* Uses main background color */
     text-align: center;
-    transition: background-color 0.3s ease;
 }
 
-.contact-section p {
-    font-size: 1.1em;
+.contact h2 {
     margin-bottom: 30px;
 }
 
-.contact-info {
-    font-size: 1.2em;
-}
-
-.contact-info p {
-    margin-bottom: 10px;
+.contact-links p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
 }
 
 /* Footer */
-.footer {
-    background-color: var(--primary-color);
+footer {
+    background-color: var(--primary-color); /* Uses primary color for footer background */
     color: white;
     text-align: center;
     padding: 25px 20px;
@@ -506,70 +377,62 @@ body.dark-mode .interest-item {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: row-reverse; /* Put hamburger on right */
-        justify-content: space-between;
-    }
-
-    .nav-logo {
-        margin-right: auto; /* Push logo to left */
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px; /* Adjust based on header height */
+    .header {
         flex-direction: column;
-        background-color: var(--primary-color);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        align-items: flex-start;
+        padding-bottom: 10px;
     }
 
-    .nav-menu.active {
-        left: 0;
+    .header h1 {
+        padding-left: 0;
+        margin-bottom: 10px;
     }
 
-    .nav-item {
-        margin: 25px 0;
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-right: 0;
     }
 
-    .hero-section {
-        flex-direction: column; /* Stack content vertically on small screens */
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .theme-toggle {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .about {
         padding: 50px 20px;
     }
 
-    .hero-content {
+    .profile-info {
         flex-direction: column; /* Stack image and text vertically */
         text-align: center; /* Center text content */
         gap: 30px; /* Adjust gap for stacked content */
     }
 
-    .hero-photo {
-        width: 180px; 
-        height: 180px;
+    .profile-image {
+        width: 180px; /* Adjusted size for mobile */
+        height: 180px; /* Adjusted size for mobile */
     }
 
-    .hero-section h1,
-    .hero-section .tagline,
-    .hero-section .intro-text {
+    .about h2,
+    .about h3,
+    .about p {
         text-align: center; /* Center these elements for small screens */
     }
 
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center; /* Center buttons */
-        justify-content: center;
+    .skills-grid,
+    .project-grid,
+    .experience-list { /* Assuming experience-list is a container for items */
+        grid-template-columns: 1fr;
     }
 
-    .skills-content,
-    .interests-content { /* Also stack interests content */
-        grid-template-columns: 1fr;
+    .skills-grid > div,
+    .project-card,
+    .experience-item {
+        padding: 20px;
     }
 }
