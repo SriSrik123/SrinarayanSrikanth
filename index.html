@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinarayan Srikanth - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">Srinarayan Srikanth</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#interests" class="nav-link">Interests</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <img src="image.jpeg" alt="Srinarayan Srikanth" class="hero-photo">
+                <div class="hero-text-content">
+                    <h1>Hi, I'm Srinarayan Srikanth</h1>
+                    <p class="tagline">Computer Science Student | AI/ML Enthusiast | Full Stack Developer</p>
+                    <p class="intro-text">Welcome! I'm a passionate Computer Science student at Drexel University with a strong interest in AI/ML and full-stack development. I enjoy building innovative solutions and contributing to impactful projects.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn primary-btn">View Projects</a>
+                        <a href="https://www.linkedin.com/in/srinarayan-srikanth-bb2750259" target="_blank" class="btn secondary-btn">Connect on LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section section-padding">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am a Computer Science student at Drexel University, Philadelphia, slated to graduate in 2029. I am part of the Pennoni Honors College and a recipient of the A.J. Drexel Scholarship. My academic journey has been further enhanced by a certification in full stack web development from the Indian Institute of Technology, Roorkee, India.</p>
+                <p>Beyond academics, I have a passion for leveraging technology to solve real-world problems. My experience spans from developing AI-powered applications to leading data science initiatives and contributing to community organizations. I also enjoy aerial drone operations and videography, and have a background in competitive swimming.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section section-padding">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>AI Product Recommender</h3>
+                    <p>
+                        This was a group project developed during my freshman year. It's an AI-driven product recommendation system that leverages a dataset of over 20,000 products to offer personalized suggestions, enhancing the shopping experience. Technologies used include Python, Pandas for data processing, and Flask for the web framework.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/SriSrik123/AIProductRecommender" target="_blank" class="project-link">GitHub Repo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>ASlearn (Learning Sign language using AI)</h3>
+                    <p>Developed an application using React.js and CSS to facilitate learning active sign language. Trained and tested models on YOLOv5 to use image detection to detect different hand signs. Implemented a Flask backend integrated with a PyTorch model to serve real-time predictions. Deployed the application using AWS, enabling scalable and accessible cloud-based inference.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/SriSrik123/ASlearn" target="_blank" class="project-link">GitHub Repo</a>
+                        </div>
+                </div>
+                <div class="project-card">
+                    <h3>SwiftFillAI</h3>
+                    <p>
+                        This project uses Google Gemini and JavaScript to build a Chrome extension. It aims to provide website assistance and automate form filling based on data you provide, streamlining various online tasks.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/SriSrik123/SwiftFillAI" target="_blank" class="project-link">GitHub Repo</a>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section section-padding">
+            <h2>Technical Skills</h2>
+            <div class="skills-content">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>C++</li>
+                        <li>SQL</li>
+                        <li>JavaScript (React, Angular, Node)</li>
+                        <li>HTML/CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools/Frameworks</h3>
+                    <ul>
+                        <li>Flask</li>
+                        <li>PyTorch</li>
+                        <li>RestAPI</li>
+                        <li>AWS Bedrock</li>
+                        <li>Azure</li>
+                        <li>Visual Studio Code</li>
+                        <li>Render/Vercel (Hosting)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>LLMs and API</h3>
+                    <ul>
+                        <li>YOLOVX</li>
+                        <li>OpenCV</li>
+                        <li>Google Gemini</li>
+                        <li>Mistral</li>
+                        <li>OpenAI</li>
+                        <li>Qwen</li>
+                        <li>Llama</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <ul>
+                        <li>Final Cut Pro X</li>
+                        <li>FAA-Certified Drone Pilot</li>
+                        <li>Stock Technical Analysis</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="hackerrank-github-links">
+                HackerRank: <a href="https://www.hackerrank.com/hellosri2006" target="_blank">@hellosri2006</a> | GitHub: <a href="https://github.com/SriSrik123" target="_blank">SriSrik123</a>
+            </p>
+        </section>
+
+        <section id="experience" class="experience-section section-padding">
+            <h2>Work Experience & Activities</h2>
+            <div class="experience-item">
+                <h3>Drexel Digital Development - Data Science Leader</h3>
+                <p class="duration">July 2023 - August 2023</p>
+                <ul>
+                    <li>Created a website using HTML/CSS to curate data to identify and analyze critical issues related to food insecurity in the United States.</li>
+                    <li>As the Data Science Lead, using SQL, spearheaded data analysis efforts, prepared actionable insights, and delivered a comprehensive presentation of findings and solutions to tackle food insecurity effectively.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Swim Instructor/Swim Coach/Lifeguard</h3>
+                <h4>Lifetime Fitness, Princeton</h4>
+                <p class="duration">June 2023 - September 2024</p>
+                <ul>
+                    <li>Developed program management skills by organizing and overseeing swim lessons for groups of 1 to 15 participants of all ages.</li>
+                    <li>Evaluated needs and goals to develop personalized and inclusive lesson plans, including for children with special needs.</li>
+                    <li>Ensured safety by maintaining a vigilant watch and enforcing pool rules.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Content Creator - YouTube channel</h3>
+                <h4>Volunteer for Indian Cultural Organizations</h4>
+                <p class="duration">February 2020 - July 2023</p>
+                <ul>
+                    <li>Gained over 4 years in immersive aerial drone operations and videography and editing using Final Cut Pro X.</li>
+                    <li>Achieved 6000+ Youtube channel views and 50+ subscribers.</li>
+                    <li>Collaborated with professional photographers to help captivate audiences.</li>
+                    <li>Completed courses on TV production, editing and videography in high school.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Philanthropic Co-Founder</h3>
+                <p class="duration">June 2021 - August 2024</p>
+                <ul>
+                    <li>Co-Founded purchasing, marketing and providing bike repair services to raise funds towards Childhood Leukemia & Lymphoma Foundation (CLLF).</li>
+                    <li>Organized community events to raise additional funds for (CLLF).</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="interests" class="interests-section section-padding">
+            <h2>Interests & Hobbies</h2>
+            <div class="interests-content">
+                <div class="interest-item">
+                    <h3>Competitive Swimming</h3>
+                    <p>As a Captain of Varsity and Club Swimming, I've consistently achieved high results, including being a three-time high school sectional finalist (2021-2024) and winning 23 medals (20 Gold, 2 Silver, 1 Bronze) at state and higher-level meets. This journey instilled in me strong discipline, leadership, and resilience.</p>
+                </div>
+                <div class="interest-item">
+                    <h3>Fitness & Triathlons</h3>
+                    <p>Beyond competitive swimming, I maintain an active lifestyle through rigorous fitness training and biking, and have successfully completed triathlons. These pursuits demonstrate my perseverance, commitment to personal challenges, and dedication to physical well-being.</p>
+                </div>
+                <div class="interest-item">
+                    <h3>Aerial Videography</h3>
+                    <p>With over 4 years of experience, I am an FAA-Certified Drone Pilot passionate about immersive aerial drone operations and videography. I utilize Final Cut Pro X for editing, creating captivating content that has garnered over 6000 YouTube channel views and 50+ subscribers.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section-padding">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!</p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:Srinarayan.Srikanth@gmail.com">Srinarayan.Srikanth@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/srinarayan-srikanth-bb2750259" target="_blank">Srinarayan Srikanth</a></p>
+                <p>GitHub: <a href="https://github.com/SriSrik123" target="_blank">SriSrik123</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Srinarayan Srikanth. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
