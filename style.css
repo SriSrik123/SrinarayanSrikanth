@@ -19,7 +19,7 @@ body.dark-mode {
     --background-color: #1a1a1a;
     --card-background: #2a2a2a;
     --border-color: #3a3a3a;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Corrected from 44px to 4px */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     --hero-gradient-start: #2a2a2a; /* Darker gradient for hero */
     --hero-gradient-end: #0056b3;
 
@@ -287,13 +287,13 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px; /* Kept at 60px */
-    height: 60px; /* Kept at 60px */
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: white;
     color: var(--primary-color); /* Icon color based on theme primary */
     text-decoration: none;
-    font-size: 2em; /* Kept at 2em */
+    font-size: 2em;
     border: 2px solid transparent;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -311,8 +311,8 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45px; /* Reduced height to make it smaller */
-    padding: 5px 15px; /* Adjusted padding to maintain visual balance */
+    height: 40px; /* Reduced height to make it smaller */
+    padding: 5px 15px; /* Padding adjusted to fit new height */
     background-color: white;
     border-radius: 5px;
     text-decoration: none;
@@ -331,7 +331,7 @@ ul {
 .hackerrank-full-logo-img {
     height: 100%; /* Make image fill the button's height */
     width: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure logo is fully visible and scaled correctly */
+    object-fit: contain;
     filter: none; /* Reset any filters by default */
     transition: filter 0.3s ease; /* Smooth transition for filter */
 }
@@ -654,12 +654,12 @@ body.dark-mode .interest-item {
 
 /* Brighter contact links */
 .contact-info a {
-    color: white; /* Make contact links white for visibility */
+    color: var(--primary-color); /* Kept this as default */
     text-decoration: underline; /* Keep underline for clarity */
 }
 
 body.dark-mode .contact-info a {
-    color: #fff; /* Ensure they remain white in dark mode too */
+    color: #61dafb; /* Kept this as bright blue for dark mode */
 }
 
 .contact-info a:hover {
@@ -749,17 +749,16 @@ body.dark-mode .contact-info a {
         justify-content: center;
     }
 
-    /* Adjusting social and hackerrank buttons for mobile */
-    .social-btn,
-    .hackerrank-full-btn {
-        width: 50px; /* Standardized width for mobile */
-        height: 50px; /* Standardized height for mobile */
-        font-size: 1.5em; /* Icon size for mobile */
-        padding: 8px 15px; /* Adjusted padding for rectangular button on mobile */
+    .social-btn {
+        width: 50px; /* Adjust circular for mobile */
+        height: 50px; /* Adjust circular for mobile */
+        font-size: 1.5em; /* Adjust icon size for mobile */
     }
 
     .hackerrank-full-btn {
-        width: auto; /* Allow width to auto-adjust for the image content */
+        height: 40px; /* Further reduced height for mobile */
+        padding: 5px 10px; /* Adjusted padding for mobile */
+        width: auto; /* Allow width to adjust based on padding and image on mobile */
     }
 
     .skills-content,
