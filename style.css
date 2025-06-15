@@ -19,7 +19,7 @@ body.dark-mode {
     --background-color: #1a1a1a;
     --card-background: #2a2a2a;
     --border-color: #3a3a3a;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Corrected from 44px to 4px */
     --hero-gradient-start: #2a2a2a; /* Darker gradient for hero */
     --hero-gradient-end: #0056b3;
 
@@ -224,7 +224,7 @@ ul {
     align-items: center;
     justify-content: center;
     max-width: 1000px;
-    gap: 40px;
+    gap: 20px;
     flex-wrap: wrap;
     text-align: center;
 }
@@ -282,35 +282,65 @@ ul {
     align-items: center;
 }
 
-/* New styling for circular social buttons */
+/* Styling for circular social buttons */
 .social-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
+    width: 60px; /* Kept at 60px */
+    height: 60px; /* Kept at 60px */
     border-radius: 50%;
-    background-color: white; /* Initial white background */
+    background-color: white;
     color: var(--primary-color); /* Icon color based on theme primary */
     text-decoration: none;
-    font-size: 2em;
-    border: 2px solid transparent; /* Added for transparency effect */
+    font-size: 2em; /* Kept at 2em */
+    border: 2px solid transparent;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .social-btn:hover {
-    background-color: transparent; /* Changed to transparent on hover */
-    color: white; /* White icon on hover for contrast */
+    background-color: transparent;
+    color: white;
     transform: translateY(-3px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    border-color: white; /* Add a white border on hover */
+    border-color: white;
 }
 
-/* Remove specific social button hover colors as general .social-btn:hover handles it */
-/* .social-btn.github-btn { color: #333; } */
-/* .social-btn.github-btn:hover { color: #4078c0; } */
-/* .social-btn.linkedin-btn { color: #0077b5; } */
-/* .social-btn.linkedin-btn:hover { color: #005682; } */
+/* Styling for the rectangular HackerRank button */
+.hackerrank-full-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px; /* Reduced height to make it smaller */
+    padding: 5px 15px; /* Adjusted padding to maintain visual balance */
+    background-color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.hackerrank-full-btn:hover {
+    background-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+
+.hackerrank-full-logo-img {
+    height: 100%; /* Make image fill the button's height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure logo is fully visible and scaled correctly */
+    filter: none; /* Reset any filters by default */
+    transition: filter 0.3s ease; /* Smooth transition for filter */
+}
+
+/* Apply filter for white logo on transparent hover background */
+/* Assuming hackerrank_full_logo.png is a DARK logo on transparent background */
+.hackerrank-full-btn:hover .hackerrank-full-logo-img {
+    filter: brightness(0) invert(1); /* Turns a dark logo white on hover */
+}
 
 
 /* General button styles (not used for hero primary/secondary buttons anymore) */
@@ -622,6 +652,22 @@ body.dark-mode .interest-item {
     margin-bottom: 30px;
 }
 
+/* Brighter contact links */
+.contact-info a {
+    color: white; /* Make contact links white for visibility */
+    text-decoration: underline; /* Keep underline for clarity */
+}
+
+body.dark-mode .contact-info a {
+    color: #fff; /* Ensure they remain white in dark mode too */
+}
+
+.contact-info a:hover {
+    color: #e0e0e0; /* Slight change on hover */
+    text-decoration: none;
+}
+
+
 .contact-info {
     font-size: 1.2em;
 }
@@ -697,16 +743,23 @@ body.dark-mode .interest-item {
     }
 
     .hero-buttons {
-        flex-direction: row; /* Keep buttons in a row on mobile */
+        flex-direction: column; /* Changed to stack vertically on mobile */
         gap: 15px;
         align-items: center;
         justify-content: center;
     }
 
-    .social-btn {
-        width: 40px; /* Smaller for mobile */
-        height: 40px; /* Smaller for mobile */
-        font-size: 1.2em;
+    /* Adjusting social and hackerrank buttons for mobile */
+    .social-btn,
+    .hackerrank-full-btn {
+        width: 50px; /* Standardized width for mobile */
+        height: 50px; /* Standardized height for mobile */
+        font-size: 1.5em; /* Icon size for mobile */
+        padding: 8px 15px; /* Adjusted padding for rectangular button on mobile */
+    }
+
+    .hackerrank-full-btn {
+        width: auto; /* Allow width to auto-adjust for the image content */
     }
 
     .skills-content,
