@@ -95,7 +95,7 @@ ul {
     padding: 0;
 }
 
-/* Header and Navigation */
+/* Header and Navigation (Desktop styles primarily) */
 .header {
     background: linear-gradient(to right, var(--hero-gradient-start), var(--hero-gradient-end));
     color: white;
@@ -137,9 +137,42 @@ ul {
     transition: color 0.3s ease;
 }
 
+/* Hamburger menu styles */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Ensure it's above menu when open */
+    position: relative; /* Needed for bar transformations */
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger active state (transforms into X) */
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Nav Menu (Desktop layout) */
 .nav-menu {
-    display: flex;
+    display: flex; /* Always flex on desktop */
     align-items: center;
+    transition: all 0.3s ease; /* For desktop hover/color changes */
 }
 
 .nav-item {
@@ -157,21 +190,6 @@ ul {
     text-decoration: none;
 }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
-}
-
 /* Theme Toggle Button */
 .theme-toggle {
     background: none;
@@ -181,6 +199,7 @@ ul {
     cursor: pointer;
     margin-left: 20px;
     transition: color 0.3s ease, transform 0.2s ease;
+    z-index: 1001; /* Ensure it's above the menu when open */
 }
 
 .theme-toggle:hover {
@@ -311,7 +330,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px; /* Reduced height to make it smaller */
+    height: 50px; /* Reduced height for HackerRank button */
     padding: 5px 15px; /* Padding adjusted to fit new height */
     background-color: white;
     border-radius: 5px;
@@ -329,17 +348,15 @@ ul {
 }
 
 .hackerrank-full-logo-img {
-    height: 100%; /* Make image fill the button's height */
-    width: auto; /* Maintain aspect ratio */
+    height: 100%;
+    width: auto;
     object-fit: contain;
-    filter: none; /* Reset any filters by default */
-    transition: filter 0.3s ease; /* Smooth transition for filter */
+    filter: none;
+    transition: filter 0.3s ease;
 }
 
-/* Apply filter for white logo on transparent hover background */
-/* Assuming hackerrank_full_logo.png is a DARK logo on transparent background */
 .hackerrank-full-btn:hover .hackerrank-full-logo-img {
-    filter: brightness(0) invert(1); /* Turns a dark logo white on hover */
+    filter: brightness(0) invert(1);
 }
 
 
@@ -654,16 +671,16 @@ body.dark-mode .interest-item {
 
 /* Brighter contact links */
 .contact-info a {
-    color: var(--primary-color); /* Kept this as default */
-    text-decoration: underline; /* Keep underline for clarity */
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
 body.dark-mode .contact-info a {
-    color: #61dafb; /* Kept this as bright blue for dark mode */
+    color: #61dafb;
 }
 
 .contact-info a:hover {
-    color: #e0e0e0; /* Slight change on hover */
+    color: #e0e0e0;
     text-decoration: none;
 }
 
@@ -688,28 +705,60 @@ body.dark-mode .contact-info a {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Header/Navbar for mobile */
+    .header {
+        padding: 10px 20px; /* Reduced vertical padding for a more compact header */
+    }
+
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row; /* Keep logo and hamburger/toggle on one line */
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0; /* Remove internal padding if navbar has it */
     }
 
     .nav-logo {
-        margin-bottom: 10px;
-    }
-
-    .nav-menu {
-        width: 100%;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-item {
-        margin: 10px 0;
+        margin: 0; /* Reset margins */
+        font-size: 1.5em; /* Slightly smaller logo text for mobile */
     }
 
     .hamburger {
-        display: none;
+        display: block; /* Show hamburger icon on mobile */
+        order: 2; /* Position it after nav-logo */
+    }
+
+    .theme-toggle {
+        margin-left: auto; /* Push toggle to the right if next to logo/hamburger */
+        order: 3; /* Position it after hamburger */
+    }
+
+    /* Mobile Nav Menu (hidden by default) */
+    .nav-menu {
+        position: fixed;
+        top: 0; /* Align with top of viewport */
+        right: -100%; /* Initially off-screen to the right */
+        height: 100vh; /* Full viewport height */
+        width: 70%; /* Adjust width of the sliding menu */
+        background-color: var(--primary-color); /* Menu background */
+        flex-direction: column; /* Stack links vertically */
+        justify-content: center; /* Center links vertically */
+        align-items: center; /* Center links horizontally */
+        transition: right 0.3s ease; /* Smooth slide-in/out animation */
+        z-index: 999; /* Ensure it's above other content */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Shadow on the sliding menu */
+    }
+
+    .nav-menu.active {
+        right: 0; /* Slide into view */
+    }
+
+    .nav-item {
+        margin: 15px 0; /* Spacing for stacked links */
+    }
+
+    .nav-link {
+        font-size: 1.2em; /* Larger font size for mobile links */
     }
 
     .hero-section {
