@@ -420,22 +420,58 @@ ul {
     transition: background-color 0.3s ease;
 }
 
+/* New container for projects grid and arrows */
+.projects-carousel-container {
+    position: relative;
+    max-width: 100%; /* Adjust as needed */
+    margin: 0 auto;
+    display: flex; /* To align arrows with grid */
+    align-items: center; /* Vertically center arrows */
+    justify-content: center; /* Center the grid within the container */
+    padding: 0 50px; /* Space for arrows */
+}
+
+
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex; /* Changed from grid to flex for horizontal scrolling */
     gap: 30px;
     margin-top: 30px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Smooth snapping effect on button click/manual scroll */
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+    padding-bottom: 20px; /* Space for scrollbar (if visible) */
+    
+    /* Re-apply paddings for centering and empty space after last card */
+    padding-left: calc(50% - 175px); /* Half of viewport minus half of card width (350px/2) */
+    padding-right: calc(50% - 175px); /* Ensures the last item can also be centered */
+
+    /* Hide scrollbar for aesthetic purposes */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+
+    flex-grow: 1; /* Allow grid to take available space */
 }
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari, Opera) */
+.projects-grid::-webkit-scrollbar {
+    display: none;
+}
+
 
 .project-card {
     background-color: var(--card-background);
     padding: 30px;
     border-radius: 8px;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+    /* Updated transition for opacity for fade effect */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
     
     opacity: 0;
     transform: translateY(20px);
+
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    width: 350px; /* Set a fixed width for consistent card size */
+    scroll-snap-align: center; /* Snap each card to the CENTER of the scroll area */
 }
 
 .project-card.animate {
@@ -446,6 +482,16 @@ ul {
 .project-card:hover {
     transform: translateY(-5px);
 }
+
+/* Styles for active and inactive project cards */
+.project-card:not(.active-project) {
+    opacity: 0.4; /* Fade out inactive cards */
+}
+
+.project-card.active-project {
+    opacity: 1; /* Ensure active card is fully opaque */
+}
+
 
 /* Styling for Project Images */
 .project-image {
@@ -464,11 +510,38 @@ ul {
     margin-bottom: 10px;
 }
 
-.project-card p {
-    font-size: 0.95em;
-    line-height: 1.7;
-    text-align: left;
+/* Project details structure */
+.project-details {
     margin-bottom: 20px;
+}
+
+.project-details h4 {
+    font-size: 1.1em;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: var(--primary-color);
+}
+body.dark-mode .project-details h4 {
+    color: var(--heading-dark-color, #bbbbbb);
+}
+
+.project-details p,
+.project-details ul {
+    font-size: 0.95em;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 0; /* Adjust as ul/p might have default margins */
+}
+
+.project-details ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.project-details ul li {
+    margin-bottom: 3px;
 }
 
 .project-links {
@@ -494,6 +567,94 @@ ul {
 }
 body.dark-mode .project-link:hover {
     background-color: #007bff;
+}
+
+/* Project Navigation Buttons */
+.project-navigation-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Space between buttons and projects */
+    gap: 15px; /* Adjust gap between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.project-nav-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    border: none; /* Remove default button border */
+    font-size: 0.9em;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.project-nav-btn.active {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.project-nav-btn:hover {
+    background-color: #0056b3; /* Darker primary color on hover */
+    transform: scale(1.02);
+}
+
+body.dark-mode .project-nav-btn {
+    background-color: #4a4a4a;
+    color: var(--text-color);
+}
+
+body.dark-mode .project-nav-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+body.dark-mode .project-nav-btn:hover {
+    background-color: #5a5a5a;
+}
+
+/* Scroll Arrows */
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    z-index: 50;
+    font-size: 1.5em;
+    /* Make arrows circular */
+    border-radius: 50%; /* Changed from 5px to 50% */
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Fixed width to make them consistent */
+    height: 50px; /* Fixed height */
+}
+
+.scroll-arrow:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.scroll-arrow.left-arrow {
+    left: 0;
+    /* Removed specific border-radius overrides */
+}
+
+.scroll-arrow.right-arrow {
+    right: 0;
+    /* Removed specific border-radius overrides */
+}
+
+/* Hide arrows when at scroll limits */
+.scroll-arrow.hidden {
+    opacity: 0;
+    pointer-events: none; /* Make it non-clickable when hidden */
 }
 
 
@@ -711,7 +872,7 @@ body.dark-mode .contact-info a {
     }
 
     .navbar {
-        flex-direction: row; /* Keep logo and hamburger/toggle on one line */
+        flex-direction: row; /* Keep logo and hamburger and toggle on one line */
         justify-content: space-between;
         align-items: center;
         width: 100%;
@@ -808,6 +969,37 @@ body.dark-mode .contact-info a {
         height: 40px; /* Further reduced height for mobile */
         padding: 5px 10px; /* Adjusted padding for mobile */
         width: auto; /* Allow width to adjust based on padding and image on mobile */
+    }
+
+    /* Projects carousel container for mobile */
+    .projects-carousel-container {
+        padding: 0 10px; /* Reduce padding for smaller screens */
+    }
+    .scroll-arrow {
+        width: 40px; /* Smaller arrows on mobile */
+        height: 40px;
+        font-size: 1.2em;
+        padding: 10px 5px;
+    }
+
+    /* Projects grid for mobile - adjusted for horizontal scroll */
+    .projects-grid {
+        padding-left: calc(50% - (100vw - 20px)/2); /* Center on mobile based on card width */
+        padding-right: calc(50% - (100vw - 20px)/2); /* Center on mobile based on card width */
+    }
+
+    .project-card {
+        width: calc(100vw - 20px); /* 100vw - total padding (10px left + 10px right) from container */
+        max-width: 350px; /* Keep a max-width for very large phones */
+    }
+
+    .project-navigation-buttons {
+        gap: 10px; /* Smaller gap for mobile buttons */
+        padding: 0 10px; /* Add some horizontal padding */
+    }
+    .project-nav-btn {
+        padding: 6px 12px; /* Smaller padding for mobile buttons */
+        font-size: 0.8em;
     }
 
     .skills-content,

@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header'); // Get the header element
     const heroSection = document.getElementById('hero'); // Get the hero section
 
+    // Elements for project carousel
+    const projectsGrid = document.querySelector('.projects-grid');
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectNavButtonsContainer = document.querySelector('.project-navigation-buttons');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+
+
     // Toggle hamburger menu (will only work if HTML elements exist)
     if (hamburger && navMenu) {
         hamburger.addEventListener("click", () => {
@@ -39,40 +47,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dark Mode Toggle Logic
     const enableDarkMode = () => {
         body.classList.add('dark-mode');
-        if (themeToggle && themeToggle.querySelector('i')) {
-            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-        }
         localStorage.setItem('theme', 'dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Change icon to sun
     };
 
     const disableDarkMode = () => {
         body.classList.remove('dark-mode');
-        if (themeToggle && themeToggle.querySelector('i')) {
-            themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
-        }
         localStorage.setItem('theme', 'light');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Change icon to moon
     };
 
-    // Check saved theme preference on load
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === null || savedTheme === 'light') {
-        enableDarkMode(); // Default to dark mode
-    } else if (savedTheme === 'dark') {
-        enableDarkMode(); // Apply dark mode if previously saved
+    // Check saved theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        enableDarkMode();
+    } else {
+        disableDarkMode(); // Default to light if no preference or 'light'
     }
 
-    // Toggle theme on button click
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('dark-mode')) {
-                disableDarkMode();
-            } else {
-                enableDarkMode();
-            }
-        });
-    }
+    themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
+    });
 
-    // Scroll Animation Logic (Intersection Observer) for elements entering view
+    // Intersection Observer for Animations (Fade In Up)
     const animateElements = document.querySelectorAll('.project-card, .skill-category, .experience-item, .interest-item');
 
     const observerOptions = {
@@ -114,4 +115,142 @@ document.addEventListener('DOMContentLoaded', () => {
 
         headerObserver.observe(heroSection);
     }
+
+    // --- Project Carousel Logic ---
+    // Function to create navigation buttons (project names)
+    function createProjectNavButtons() {
+        if (projectNavButtonsContainer && projectCards.length > 0) {
+            projectNavButtonsContainer.innerHTML = ''; // Clear existing buttons
+            projectCards.forEach((card, index) => {
+                card.id = `project-card-${index}`; // Ensure IDs for easy targeting
+                
+                // Get project name from the h3 tag inside the project card
+                const projectNameElement = card.querySelector('h3');
+                const projectName = projectNameElement ? projectNameElement.textContent : `Project ${index + 1}`; // Fallback
+
+                const button = document.createElement('button'); // Create a button element
+                button.classList.add('project-nav-btn'); // Add new class
+                
+                button.textContent = projectName; // Set button text to project name
+                
+                if (index === 0) {
+                    button.classList.add('active'); // First button active by default
+                }
+                button.dataset.index = index;
+                button.addEventListener('click', () => {
+                    projectCards[index].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center' // Snap to center of the view
+                    });
+                });
+                projectNavButtonsContainer.appendChild(button);
+            });
+        }
+    }
+
+    // Function to update active button AND project card based on scroll position
+    function updateActiveButtonAndProjectCard() {
+        if (projectCards.length === 0 || !projectsGrid || !projectNavButtonsContainer) return;
+
+        let activeIndex = 0;
+        let minDistance = Infinity;
+        // Calculate the center point of the scrollable container's viewport
+        const containerCenterX = projectsGrid.scrollLeft + projectsGrid.offsetWidth / 2;
+
+        // Iterate through project cards to find the one closest to the center
+        projectCards.forEach((card, index) => {
+            const cardCenterX = card.offsetLeft + card.offsetWidth / 2;
+            const distance = Math.abs(containerCenterX - cardCenterX);
+            
+            if (distance < minDistance) {
+                minDistance = distance;
+                activeIndex = index;
+            }
+        });
+        
+        // Update navigation button active state
+        document.querySelectorAll('.project-nav-btn').forEach((button, index) => {
+            if (index === activeIndex) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+
+        // Update project card active/inactive state for visual fading
+        projectCards.forEach((card, index) => {
+            if (index === activeIndex) {
+                card.classList.add('active-project');
+            } else {
+                card.classList.remove('active-project');
+            }
+        });
+    }
+
+    // --- Arrow Navigation Logic ---
+    // Function to scroll the projects grid
+    function scrollProjects(direction) {
+        // Scroll by one card width plus the gap (350px + 30px = 380px)
+        const scrollAmount = 380; 
+
+        if (direction === 'left') {
+            projectsGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else {
+            projectsGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    }
+
+    // Function to update arrow visibility (hide when at limits)
+    function updateArrowVisibility() {
+        if (!leftArrow || !rightArrow || !projectsGrid) return;
+
+        const scrollTolerance = 5; // Small tolerance for floating point issues
+
+        // Hide left arrow if at the very beginning
+        if (projectsGrid.scrollLeft <= scrollTolerance) {
+            leftArrow.classList.add('hidden');
+        } else {
+            leftArrow.classList.remove('hidden');
+        }
+
+        // Hide right arrow if at the very end
+        // scrollWidth - clientWidth gives the maximum scrollable distance
+        if (projectsGrid.scrollLeft + projectsGrid.clientWidth >= projectsGrid.scrollWidth - scrollTolerance) {
+            rightArrow.classList.add('hidden');
+        } else {
+            rightArrow.classList.remove('hidden');
+        }
+    }
+
+
+    // Initial calls for setup
+    createProjectNavButtons(); 
+    
+    // Event listeners for arrows
+    if (leftArrow) {
+        leftArrow.addEventListener('click', () => scrollProjects('left'));
+    }
+    if (rightArrow) {
+        rightArrow.addEventListener('click', () => scrollProjects('right'));
+    }
+
+    // Add scroll and resize listeners for updating buttons, arrows, and project card visibility
+    let scrollTimeout;
+    projectsGrid.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            updateActiveButtonAndProjectCard();
+            updateArrowVisibility();
+        }, 50); // Debounce scroll event
+    });
+    window.addEventListener('resize', () => {
+        updateActiveButtonAndProjectCard();
+        updateArrowVisibility();
+    });
+
+    // Initial calls to set the correct state on page load
+    updateActiveButtonAndProjectCard();
+    updateArrowVisibility();
+
 });

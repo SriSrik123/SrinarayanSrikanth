@@ -19,7 +19,6 @@
                 <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
                 <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
                 <li class="nav-item"><a href="#interests" class="nav-link">Interests</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 <li class="nav-item">
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                         <i class="fas fa-moon"></i>
@@ -67,35 +66,85 @@
 
         <section id="projects" class="projects-section section-padding">
             <h2>My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="shoppusle.png" alt="AI Product Recommender" class="project-image">
-                    <h3>AI Product Recommender</h3>
-                    <p>
-                        This was a group project developed during my freshman year. It's an AI-driven product recommendation system that leverages a dataset of over 20,000 products to offer personalized suggestions, enhancing the shopping experience. Technologies used include Python, Pandas for data processing, and Flask for the web framework.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/SriSrik123/AIProductRecommender" target="_blank" class="project-link">GitHub Repo</a>
+            <div class="project-navigation-buttons">
+                </div>
+            
+            <div class="projects-carousel-container">
+                <button class="scroll-arrow left-arrow" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <div class="projects-grid">
+                    <div class="project-card" id="project-card-0">
+                        <img src="PulseTrack.jpeg" alt="PulseTrack" class="project-image">
+                        <h3>PulseTrack</h3>
+                        <div class="project-details">
+                            <h4>Description:</h4>
+                            <p>Engineered a full-stack web application that dynamically generates personalized workout plans based on user profiles and health data.</p>
+                            <h4>Tech Stack:</h4>
+                            <ul>
+                                <li>React</li>
+                                <li>Tailwind CSS</li>
+                                <li>Firebase</li>
+                                <li>Google Gemini AI</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/SriSrik123/Workout-Tracker" target="_blank" class="project-link">GitHub Repo</a>
+                        </div>
+                    </div>
+                    <div class="project-card" id="project-card-1">
+                        <img src="ASLearn.png" alt="ASlearn (Learning Sign language using AI)" class="project-image">
+                        <h3>ASlearn (Learning Sign language using AI)</h3>
+                        <div class="project-details">
+                            <h4>Description:</h4>
+                            <p>Built an application to help people learn active sign language by detecting hand signs using image recognition.</p>
+                            <h4>Tech Stack:</h4>
+                            <ul>
+                                <li>React.js</li>
+                                <li>CSS</li>
+                                <li>YOLOv5</li>
+                                <li>Flask</li>
+                                <li>PyTorch</li>
+                                <li>AWS</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/SriSrik123/ASlearn" target="_blank" class="project-link">GitHub Repo</a>
+                        </div>
+                    </div>
+                    <div class="project-card" id="project-card-2">
+                        <img src="swiftfillai.png" alt="SwiftFillAI" class="project-image">
+                        <h3>SwiftFillAI</h3>
+                        <div class="project-details">
+                            <h4>Description:</h4>
+                            <p>Chrome extension using AI for website assistance and automating form filling to streamline online tasks.</p>
+                            <h4>Tech Stack:</h4>
+                            <ul>
+                                <li>Google Gemini</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/SriSrik123/SwiftFillAI" target="_blank" class="project-link">GitHub Repo</a>
+                        </div>
+                    </div>
+                    <div class="project-card" id="project-card-3">
+                        <img src="shoppusle.png" alt="AI Product Recommender" class="project-image">
+                        <h3>AI Product Recommender</h3>
+                        <div class="project-details">
+                            <h4>Description:</h4>
+                            <p>Developed an AI-driven product recommendation system that leverages a dataset of over 20,000 products to offer personalized suggestions, enhancing the shopping experience.</p>
+                            <h4>Tech Stack:</h4>
+                            <ul>
+                                <li>Python</li>
+                                <li>Pandas</li>
+                                <li>Flask</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/SriSrik123/AIProductRecommender" target="_blank" class="project-link">GitHub Repo</a>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <img src="ASLearn.png" alt="ASlearn (Learning Sign language using AI)" class="project-image">
-                    <h3>ASlearn (Learning Sign language using AI)</h3>
-                    <p>Developed an application using React.js and CSS to facilitate learning active sign language. Trained and tested models on YOLOv5 to use image detection to detect different hand signs. Implemented a Flask backend integrated with a PyTorch model to serve real-time predictions. Deployed the application using AWS, enabling scalable and accessible cloud-based inference.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/SriSrik123/ASlearn" target="_blank" class="project-link">GitHub Repo</a>
-                        </div>
-                </div>
-                <div class="project-card">
-                    <img src="swiftfillai.png" alt="SwiftFillAI" class="project-image">
-                    <h3>SwiftFillAI</h3>
-                    <p>
-                        This project uses Google Gemini and JavaScript to build a Chrome extension. It aims to provide website assistance and automate form filling based on data you provide, streamlining various online tasks.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/SriSrik123/SwiftFillAI" target="_blank" class="project-link">GitHub Repo</a>
-                        </div>
-                </div>
+                <button class="scroll-arrow right-arrow" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
 
@@ -123,6 +172,11 @@
                         <li>Azure</li>
                         <li>Visual Studio Code</li>
                         <li>Render/Vercel (Hosting)</li>
+                        <li>Jenkins</li>
+                        <li>Bitbucket</li>
+                        <li>Docker</li>
+                        <li>Firebase</li>
+                        <li>Tailwind CSS</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -153,21 +207,20 @@
         <section id="experience" class="experience-section section-padding">
             <h2>Work Experience & Activities</h2>
             <div class="experience-item">
+                <h3>Neural Metrics, Chennai, India - AI Product Developer Intern</h3>
+                <p class="duration">July 2025 - September 2025</p>
+                <ul>
+                    <li>Engineered a code verification system integrating with Bitbucket and Jira to evaluate code quality against user stories for release readiness.</li>
+                    <li>Leveraged a modern tech stack including Jenkins, Gemini, AWS, and Docker for development and deployment.</li>
+                    <li>Worked on the integration of AI models for intelligent code analysis and automation processes.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
                 <h3>Drexel Digital Development - Data Science Leader</h3>
                 <p class="duration">July 2023 - August 2023</p>
                 <ul>
                     <li>Created a website using HTML/CSS to curate data to identify and analyze critical issues related to food insecurity in the United States.</li>
                     <li>As the Data Science Lead, using SQL, spearheaded data analysis efforts, prepared actionable insights, and delivered a comprehensive presentation of findings and solutions to tackle food insecurity effectively.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Swim Instructor/Swim Coach/Lifeguard</h3>
-                <h4>Lifetime Fitness, Princeton</h4>
-                <p class="duration">June 2023 - September 2024</p>
-                <ul>
-                    <li>Developed program management skills by organizing and overseeing swim lessons for groups of 1 to 15 participants of all ages.</li>
-                    <li>Evaluated needs and goals to develop personalized and inclusive lesson plans, including for children with special needs.</li>
-                    <li>Ensured safety by maintaining a vigilant watch and enforcing pool rules.</li>
                 </ul>
             </div>
             <div class="experience-item">
