@@ -527,6 +527,65 @@ body.dark-mode .project-link:hover {
     background-color: #007bff;
 }
 
+/* Certifications Section Styling */
+.certifications-section {
+    background-color: var(--background-color); /* Or card-background for a different look */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 30px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.cert-item {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .cert-item {
+    background-color: #1f1f1f; /* Darker background for cert items in dark mode */
+}
+
+.cert-item:hover {
+    transform: translateY(-5px); /* Subtle hover effect */
+}
+
+.cert-item h3 {
+    font-size: 1.6em; /* Bigger heading for certification name */
+    margin-bottom: 10px;
+    text-align: left;
+    color: var(--primary-color); /* Highlight heading */
+}
+
+body.dark-mode .cert-item h3 {
+    color: var(--heading-dark-color, #bbbbbb);
+}
+
+.cert-item p {
+    font-size: 1.1em; /* Bigger text for general info */
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.cert-item ul {
+    list-style: disc; /* Use bullets for lists within certs */
+    margin-left: 20px;
+    font-size: 1.05em; /* Bigger text for list items */
+    line-height: 1.6;
+}
+
+.cert-item li {
+    margin-bottom: 5px;
+}
+
 
 /* Skills Section */
 .skills-section {
@@ -851,6 +910,12 @@ body.dark-mode .contact-info a {
         width: 85vw; /* Make cards take up most of the viewport width */
         max-width: 350px; /* Keep a max-width for very large phones */
     }
+
+    /* Certifications Grid for mobile */
+    .certifications-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
 
     .skills-content,
     .interests-content {
