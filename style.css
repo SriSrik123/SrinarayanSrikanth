@@ -527,6 +527,55 @@ body.dark-mode .project-link:hover {
     background-color: #007bff;
 }
 
+/* Project Navigation Buttons */
+.project-navigation-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.project-nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    position: relative; /* For the underline effect */
+    transition: color 0.3s ease, font-weight 0.3s ease, border-bottom 0.3s ease;
+    
+    /* Underline effect */
+    border-bottom: 2px solid transparent; /* Initial transparent underline */
+}
+
+.project-nav-btn:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+body.dark-mode .project-nav-btn:hover {
+    color: var(--heading-dark-color);
+    border-bottom-color: var(--heading-dark-color);
+}
+
+.project-nav-btn.active {
+    color: var(--primary-color); /* Active text color */
+    font-weight: 700; /* Bolder text when active */
+    /* Minimal glow underline */
+    border-bottom-color: rgba(0, 123, 255, 0.3); /* Very subtle blue underline */
+}
+
+body.dark-mode .project-nav-btn.active {
+    color: #61dafb; /* Lighter blue for dark mode active text */
+    border-bottom-color: rgba(97, 218, 251, 0.2); /* Very subtle cyan underline */
+}
+
+
 /* Certifications Section Styling */
 .certifications-section {
     background-color: var(--background-color); /* Or card-background for a different look */

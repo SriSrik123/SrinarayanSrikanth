@@ -133,11 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 button.textContent = projectName; // Set button text to project name
                 
-                if (index === 0) {
-                    button.classList.add('active'); // First button active by default
-                }
                 button.dataset.index = index;
-                button.addEventListener('click', () => {
+                button.addEventListener('click', function () { // Use 'function' to get 'this' context
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.project-nav-btn').forEach(btn => btn.classList.remove('active'));
+                    // Add active class to the clicked button
+                    this.classList.add('active');
+
                     projectCards[index].scrollIntoView({
                         behavior: 'smooth',
                         block: 'nearest',
@@ -150,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to update active button AND project card based on scroll position
+    // This function will now ONLY handle the 'active-project' class on cards, not the nav buttons
     function updateActiveButtonAndProjectCard() {
         if (projectCards.length === 0 || !projectsGrid || !projectNavButtonsContainer) return;
 
@@ -169,16 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Update navigation button active state
-        document.querySelectorAll('.project-nav-btn').forEach((button, index) => {
-            if (index === activeIndex) {
-                button.classList.add('active');
-            } else {
-                button.classList.remove('active');
-            }
-        });
-
-        // Update project card active/inactive state for visual fading
+        // Update project card active/inactive state for visual fading (ONLY THIS PART REMAINS)
         projectCards.forEach((card, index) => {
             if (index === activeIndex) {
                 card.classList.add('active-project');
@@ -227,6 +221,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial calls for setup
     createProjectNavButtons(); 
     
+    // Set the first project navigation button as active on initial load
+    const firstProjectNavButton = document.querySelector('.project-nav-btn');
+    if (firstProjectNavButton) {
+        firstProjectNavButton.classList.add('active');
+    }
+
     // Event listeners for arrows
     if (leftArrow) {
         leftArrow.addEventListener('click', () => scrollProjects('left'));
@@ -235,22 +235,22 @@ document.addEventListener('DOMContentLoaded', () => {
         rightArrow.addEventListener('click', () => scrollProjects('right'));
     }
 
-    // Add scroll and resize listeners for updating buttons, arrows, and project card visibility
+    // Add scroll and resize listeners for updating project cards and arrows (nav buttons are no longer updated by scroll here)
     let scrollTimeout;
     projectsGrid.addEventListener('scroll', () => {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
-            updateActiveButtonAndProjectCard();
+            updateActiveButtonAndProjectCard(); // This now only updates project card active state
             updateArrowVisibility();
         }, 50); // Debounce scroll event
     });
     window.addEventListener('resize', () => {
-        updateActiveButtonAndProjectCard();
+        updateActiveButtonAndProjectCard(); // This now only updates project card active state
         updateArrowVisibility();
     });
 
     // Initial calls to set the correct state on page load
-    updateActiveButtonAndProjectCard();
+    updateActiveButtonAndProjectCard(); 
     updateArrowVisibility();
 
 });
