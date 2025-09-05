@@ -971,3 +971,49 @@ body.dark-mode .contact-info a {
         grid-template-columns: 1fr;
     }
 }
+/* Extracurricular Section */
+.extracurricular-section {
+    background-color: var(--background-color);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.extracurricular-item {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    text-align: left;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.extracurricular-item:hover {
+    transform: translateY(-5px);
+}
+
+body.dark-mode .extracurricular-item {
+    background-color: #1f1f1f;
+}
+
+.extracurricular-item h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+body.dark-mode .extracurricular-item h3 {
+    color: var(--heading-dark-color, #bbbbbb);
+}
+
+.extracurricular-item ul {
+    list-style: disc;
+    margin-left: 20px;
+    font-size: 1em;
+    line-height: 1.7;
+}
+
+.extracurricular-item li {
+    margin-bottom: 8px;
+}
