@@ -19,7 +19,7 @@
                 <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
                 <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-                <li class="nav-item"><a href="#interests" class="nav-link">Interests</a></li>
+                <li class="nav-item"><a href="#extracurricular" class="nav-link">Extracurricular</a></li>
                 <li class="nav-item">
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                         <i class="fas fa-moon"></i>
@@ -40,8 +40,12 @@
                 <img src="image.jpeg" alt="Srinarayan Srikanth" class="hero-photo">
                 <div class="hero-text-content">
                     <h1>Hi, I'm Srinarayan Srikanth</h1>
-                    <p class="tagline">Computer Science Student | AI/ML Enthusiast | Full Stack Developer | Swimming Enthusiast</p>
-                    <p class="intro-text">Welcome! I'm a passionate Computer Science student at Drexel University with a strong interest in AI/ML and full-stack development. I enjoy building innovative solutions and contributing to impactful projects.</p>
+                    <p class="tagline">Computer Science Student | AI/ML Enthusiast | Full Stack Developer | National Team Swimmer</p>
+                    <p class="intro-text">
+                        Passionate Computer Science student with hands-on experience building AI agents to optimize workflows. 
+                        Skilled in applying real-world solutions through internships at companies like Neural Metrics and Comcast. 
+                        Brings a diverse perspective from academic and professional experiences in both the U.S. and India.
+                    </p>
                     <div class="hero-buttons">
                         <a href="https://github.com/SriSrik123" target="_blank" class="social-btn github-btn" aria-label="GitHub Profile">
                             <i class="fab fa-github"></i>
@@ -60,25 +64,30 @@
         <section id="about" class="about-section section-padding">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>I am a Computer Science student at Drexel University, Philadelphia, slated to graduate in 2029. I am part of the Pennoni Honors College and a recipient of the A.J. Drexel Scholarship.</p>
-                <p>Beyond academics, I have a passion for leveraging technology to solve real-world problems. My experience spans from developing AI-powered applications to leading data science initiatives and contributing to community organizations. I also enjoy aerial drone operations and videography, and have a background in competitive swimming.</p>
+                <p>
+                    I am a Computer Science student at Drexel University, Philadelphia, Class of 2029, and part of the Pennoni Honors College. 
+                    I am also a proud recipient of the A.J. Drexel Scholarship. My academic and professional journey spans both the U.S. and India, 
+                    where I've gained unique perspectives in applying AI and software development to solve real-world challenges. 
+                </p>
+                <p>
+                    My passions lie in AI/ML, full-stack development, and building intelligent applications that create real impact. 
+                    From designing AI-powered systems at Neural Metrics to exploring AI strategy at Comcast, 
+                    I thrive at the intersection of technology and business transformation.
+                </p>
             </div>
         </section>
 
         <section id="projects" class="projects-section section-padding">
             <h2>My Projects</h2>
-            <div class="project-navigation-buttons">
-                </div>
-            
             <div class="projects-carousel-container">
                 <button class="scroll-arrow left-arrow" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
                 <div class="projects-grid">
-                    <div class="project-card" id="project-card-0">
+                    <!-- Coached -->
+                    <div class="project-card">
                         <img src="CoachedLogo.png" alt="Coached" class="project-image">
-                        <h3>Coached</h3>
+                        <h3>Coached - AI Fitness Tracking App</h3>
                         <div class="project-details">
-                            <h4>Description:</h4>
-                            <p>Developed a comprehensive fitness tracking application that leverages AI to deliver personalized, sport-specific workout plans. This full-stack web application transforms how athletes train by providing intelligent coaching, detailed progress analytics, and social features.</p>
+                            <p>Full-stack AI app delivering sport-specific workout plans, analytics, and social features.</p>
                             <h4>Tech Stack:</h4>
                             <ul>
                                 <li>React 18.3.1</li>
@@ -87,8 +96,8 @@
                                 <li>Tailwind CSS 3.4.11</li>
                                 <li>Radix UI</li>
                                 <li>shadcn/ui</li>
-                                <li>Capacitor 7.4.1 (for iOS/Android native builds)</li>
-                                <li>Supabase (for backend and authentication)</li>
+                                <li>Capacitor 7.4.1</li>
+                                <li>Supabase</li>
                                 <li>Google Gemini API</li>
                             </ul>
                         </div>
@@ -96,31 +105,30 @@
                             <a href="https://github.com/SriSrik123/Workout-Tracker" target="_blank" class="project-link">GitHub Repo</a>
                         </div>
                     </div>
-                    <div class="project-card" id="project-card-1">
-                        <img src="ASLearn.png" alt="ASlearn (Learning Sign language using AI)" class="project-image">
-                        <h3>ASlearn (Learning Sign language using AI)</h3>
+                    <!-- ASlearn -->
+                    <div class="project-card">
+                        <img src="ASLearn.png" alt="ASlearn" class="project-image">
+                        <h3>ASlearn - AI Sign Language Platform</h3>
                         <div class="project-details">
-                            <h4>Description:</h4>
-                            <p>Built an application to help people learn active sign language by detecting hand signs using image recognition.</p>
+                            <p>Built real-time sign recognition app with YOLOv5 and PyTorch for gesture detection. Flask backend deployed on AWS for scalability.</p>
                             <h4>Tech Stack:</h4>
                             <ul>
                                 <li>React.js</li>
-                                <li>CSS</li>
-                                <li>YOLOv5</li>
                                 <li>Flask</li>
                                 <li>PyTorch</li>
                                 <li>AWS</li>
+                                <li>YOLOv5</li>
                             </ul>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/SriSrik123/ASlearn" target="_blank" class="project-link">GitHub Repo</a>
                         </div>
                     </div>
-                    <div class="project-card" id="project-card-2">
+                    <!-- SwiftFillAI -->
+                    <div class="project-card">
                         <img src="swiftfillai.png" alt="SwiftFillAI" class="project-image">
                         <h3>SwiftFillAI</h3>
                         <div class="project-details">
-                            <h4>Description:</h4>
                             <p>Chrome extension using AI for website assistance and automating form filling to streamline online tasks.</p>
                             <h4>Tech Stack:</h4>
                             <ul>
@@ -132,12 +140,12 @@
                             <a href="https://github.com/SriSrik123/SwiftFillAI" target="_blank" class="project-link">GitHub Repo</a>
                         </div>
                     </div>
-                    <div class="project-card" id="project-card-3">
+                    <!-- AI Product Recommender -->
+                    <div class="project-card">
                         <img src="shoppusle.png" alt="AI Product Recommender" class="project-image">
                         <h3>AI Product Recommender</h3>
                         <div class="project-details">
-                            <h4>Description:</h4>
-                            <p>Developed an AI-driven product recommendation system that leverages a dataset of over 20,000 products to offer personalized suggestions, enhancing the shopping experience.</p>
+                            <p>Developed an AI-driven product recommendation system leveraging a dataset of 20,000+ products to offer personalized shopping suggestions.</p>
                             <h4>Tech Stack:</h4>
                             <ul>
                                 <li>Python</li>
@@ -162,13 +170,17 @@
                     <p>Indian Institute of Technology (IIT) - March 2024 - March 2025</p>
                 </div>
                 <div class="cert-item">
-                    <h3>LinkedIn</h3>
+                    <h3>LinkedIn Learning</h3>
                     <ul>
-                        <li>Prompt Engineering for Generative AI</li>
+                        <li>Prompt Engineering</li>
                         <li>Learning JIRA</li>
                         <li>Agile Software Development</li>
-                        <li>Foundations in AI DeepLearning.AI - AI with Python</li>
+                        <li>Foundations in AI</li>
                     </ul>
+                </div>
+                <div class="cert-item">
+                    <h3>DeepLearning.AI</h3>
+                    <p>AI with Python</p>
                 </div>
                 <div class="cert-item">
                     <h3>HackerRank</h3>
@@ -179,7 +191,7 @@
                         <li>CSS</li>
                         <li>Frontend Developer</li>
                         <li>Software Engineer</li>
-                        <li>Problem Solving Skills</li>
+                        <li>Problem Solving</li>
                     </ul>
                 </div>
             </div>
@@ -187,7 +199,9 @@
 
         <section id="skills" class="skills-section section-padding">
             <h2>Technical Skills</h2>
+            <!-- same as your resume -->
             <div class="skills-content">
+                <!-- Languages -->
                 <div class="skill-category">
                     <h3>Languages</h3>
                     <ul>
@@ -200,6 +214,7 @@
                         <li>HTML/CSS</li>
                     </ul>
                 </div>
+                <!-- Frontend -->
                 <div class="skill-category">
                     <h3>Frontend Libraries/Frameworks</h3>
                     <ul>
@@ -213,6 +228,7 @@
                         <li>Lucide React</li>
                     </ul>
                 </div>
+                <!-- Backend -->
                 <div class="skill-category">
                     <h3>Backend/Database</h3>
                     <ul>
@@ -220,31 +236,25 @@
                         <li>FastAPI</li>
                         <li>Supabase</li>
                         <li>Firebase</li>
-                        <li>RestAPI</li>
+                        <li>REST API</li>
                     </ul>
                 </div>
+                <!-- Cloud -->
                 <div class="skill-category">
                     <h3>Cloud Platforms</h3>
                     <ul>
                         <li>Azure</li>
                         <li>Render</li>
                         <li>Vercel</li>
-                        <li>AWS Services:
-                            <ul>
-                                <li>Bedrock</li>
-                                <li>Lambda</li>
-                                <li>Secrets Manager</li>
-                                <li>ECS</li>
-                                <li>EC2</li>
-                            </ul>
-                        </li>
+                        <li>AWS Services: Bedrock, Lambda, Secrets Manager, ECS, EC2</li>
                     </ul>
                 </div>
+                <!-- AI/ML -->
                 <div class="skill-category">
                     <h3>AI/ML & APIs</h3>
                     <ul>
                         <li>PyTorch</li>
-                        <li>YOLOVX</li>
+                        <li>YOLOvX</li>
                         <li>OpenCV</li>
                         <li>NLP</li>
                         <li>Tesseract</li>
@@ -258,10 +268,11 @@
                         <li>LayoutParser</li>
                     </ul>
                 </div>
+                <!-- Tools -->
                 <div class="skill-category">
                     <h3>Development Tools</h3>
                     <ul>
-                        <li>Visual Studio Code</li>
+                        <li>VS Code</li>
                         <li>Jenkins</li>
                         <li>Docker</li>
                         <li>PostCSS</li>
@@ -269,14 +280,16 @@
                         <li>Capacitor</li>
                     </ul>
                 </div>
+                <!-- Version Control -->
                 <div class="skill-category">
                     <h3>Version Control</h3>
                     <ul>
-                        <li>Bitbucket</li>
                         <li>GitHub</li>
                         <li>GitLab</li>
+                        <li>Bitbucket</li>
                     </ul>
                 </div>
+                <!-- Other -->
                 <div class="skill-category">
                     <h3>Other</h3>
                     <ul>
@@ -288,68 +301,41 @@
         </section>
 
         <section id="experience" class="experience-section section-padding">
-            <h2>Work Experience & Activities</h2>
+            <h2>Work Experience</h2>
+            <!-- Comcast -->
             <div class="experience-item">
-                <h3>Neural Metrics, Chennai, India - AI Product Intern</h3>
-                <p class="skills-list">Skills: Python, FastAPI, Gemini, AWS, Docker, Jenkins, Bitbucket, JIRA, OpenCV, Tesseract, NLP, Regex, PyMuPDF, LayoutParser</p>
-                <p class="duration">July 2025 - August 2025</p>
+                <h3>Comcast Corporation - AI Strategy, Business Development & Transformation Co-op</h3>
+                <p class="duration">Sept 2025 - Present | Philadelphia, PA</p>
                 <ul>
-                    <li>Identified and solved for critical challenges in team productivity and code quality by conceptualizing and building an AI-driven intelligent code verification system.</li>
-                    <li>Integrated with Bitbucket and Jira, this solution evaluates code against user stories, projected to reduce manual review effort by 50%.</li>
-                    <li>Utilized Jenkins, Gemini, AWS, and Docker to streamline development and deployment processes, enhancing CI/CD pipeline efficiency.</li>
-                    <li>Engineered a prompt evaluation system to ensure a higher accuracy threshold, significantly enhancing the confidence on AI model recommendation.</li>
-                    <li>Established essential logging required to integrate into AI Ops framework to ensure ongoing monitoring of model performance, efficiency, and to identify behavioral deviations.</li>
-                    <li>Developed an AI-powered PDF extraction tool to automatically extract and parse data from complex documents like ACORD forms and other supplemental forms.</li>
-                    <li>The solution was built using FastAPI to create a robust and scalable backend API. It used OpenCV and Tesseract for optical character recognition (OCR) and NLP (Natural Language Processing) techniques, including regex, to accurately identify and extract specific data fields.</li>
-                    <li>Integrated PyMuPDF (fitz) and LayoutParser to handle complex document structures and detect layout elements like tables and forms, ensuring high accuracy on structured documents like ACORD forms.</li>
+                    <li>Support strategic AI/ML initiatives across Comcast, including partnership evaluations, M&A opportunities, and enterprise-wide AI adoption.</li>
+                    <li>Construct business cases with financial models and executive-ready presentations for senior leadership across Comcast Cable, Sky, and NBCUniversal.</li>
+                    <li>Conduct research on emerging AI/ML markets, startups, and technology trends, shaping Comcast's trajectory in AI integration.</li>
+                    <li>Participate in high-profile projects where contributions are shared directly with top executives, influencing long-term strategy.</li>
                 </ul>
             </div>
+            <!-- NeuralMetrics -->
             <div class="experience-item">
-                <h3>Drexel Digital Development - Data Science Leader</h3>
-                <p class="skills-list">Skills: SQL, HTML, CSS, Data Analysis, Data Curation, Public Speaking</p>
-                <p class="duration">July 2023 - September 2023</p>
+                <h3>Neural Metrics - AI Product Intern</h3>
+                <p class="duration">July 2025 - September 2025 | Chennai, India</p>
                 <ul>
-                    <li>Created a website using HTML/CSS to curate data to identify and analyze critical issues related to food insecurity in the United States.</li>
-                    <li>As the Data Science Lead, using SQL, spearheaded data analysis efforts, prepared actionable insights, and delivered a comprehensive presentation of findings and solutions to tackle food insecurity effectively.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Content Creator - YouTube channel</h3>
-                <p class="skills-list">Skills: Final Cut Pro X, Drone Operations, Videography, Video Editing, Content Creation</p>
-                <p class="duration">February 2020 - July 2023</p>
-                <ul>
-                    <li>Gained over 4 years in immersive aerial drone operations and videography and editing using Final Cut Pro X.</li>
-                    <li>Achieved 6000+ Youtube channel views and 50+ subscribers.</li>
-                    <li>Collaborated with professional photographers to help captivate audiences.</li>
-                    <li>Completed courses on TV production, editing and videography in high school.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Philanthropic Co-Founder</h3>
-                <p class="skills-list">Skills: Marketing, Event Organization, Fundraising, Leadership, Community Engagement</p>
-                <p class="duration">June 2021 - August 2024</p>
-                <ul>
-                    <li>Co-Founded purchasing, marketing and providing bike repair services to raise funds towards Childhood Leukemia & Lymphoma Foundation (CLLF).</li>
-                    <li>Organized community events to raise additional funds for (CLLF).</li>
+                    <li>Identified and solved critical challenges in team productivity and code quality by developing an AI-driven intelligent code verification system.</li>
+                    <li>Integrated solution with Bitbucket and Jira, reducing manual review efforts by 50%.</li>
+                    <li>Developed an AI-powered PDF extraction tool using FastAPI, OpenCV, Tesseract, Regex, PyMuPDF, and LayoutParser to handle complex documents such as ACORD forms.</li>
+                    <li>Streamlined CI/CD processes with Jenkins, Docker, and AWS (Bedrock, ECS, Lambda, EC2), enhancing deployment efficiency.</li>
+                    <li>Implemented a prompt evaluation system and logging framework for AI Ops, ensuring high confidence in model recommendations and ongoing monitoring of performance.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="interests" class="interests-section section-padding">
-            <h2>Interests & Hobbies</h2>
-            <div class="interests-content">
-                <div class="interest-item">
-                    <h3>Competitive Swimming</h3>
-                    <p>As a Captain of Varsity and Club Swimming, I've consistently achieved high results, including being a three-time high school sectional finalist (2021-2024) and winning 23 medals (20 Gold, 2 Silver, 1 Bronze) at state and higher-level meets. Swimming helped me learn discipline, leadership, and resilience.</p>
-                </div>
-                <div class="interest-item">
-                    <h3>Fitness & Triathlons</h3>
-                    <p>Beyond competitive swimming, I maintain an active lifestyle through rigorous fitness training and biking, and have successfully completed my first triathlon. These pursuits demonstrate my perseverance, commitment to personal challenges, and dedication to physical well-being.</p>
-                </div>
-                <div class="interest-item">
-                    <h3>Aerial Videography</h3>
-                    <p>With over 4 years of experience, I am an FAA-Certified Drone Pilot passionate about immersive aerial drone operations and videography. I utilize Final Cut Pro X for editing, creating captivating content that has garnered over 6000 YouTube channel views and 50+ subscribers.</p>
-                </div>
+        <section id="extracurricular" class="extracurricular-section section-padding">
+            <h2>Extracurricular</h2>
+            <div class="extracurricular-item">
+                <h3>American National Team Swimmer</h3>
+                <ul>
+                    <li>Captain - PTAC Swim Club; won 20+ gold medals at state and regional meets (2016-2024).</li>
+                    <li>Represented at national-level competitions; awarded “Best Overall Freshman” at Nationals 2025.</li>
+                    <li>Three-time high school sectional finalist (2021-2024).</li>
+                </ul>
             </div>
         </section>
 
